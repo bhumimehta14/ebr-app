@@ -1,0 +1,1 @@
+export default function Matrix() { return <div>Matrix Page (Placeholder)</div>; }
