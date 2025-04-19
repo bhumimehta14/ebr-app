@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 
@@ -18,3 +19,7 @@ async def upload_file(file: UploadFile = File(...)):
 @app.post("/api/ocr")
 async def mock_ocr(file: UploadFile = File(...)):
     return {"text": "Mock OCR result for testing."}
+
+@app.get("/", response_class=HTMLResponse)
+async def root():
+    return "<h1>✅ EBR Backend is running!</h1>"
