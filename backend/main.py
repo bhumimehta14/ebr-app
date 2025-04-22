@@ -23,3 +23,7 @@ async def mock_ocr(file: UploadFile = File(...)):
 @app.get("/", response_class=HTMLResponse)
 async def root():
     return "<h1>✅ EBR Backend is running!</h1>"
+
+@app.get("/api/recipes")
+def get_recipes():
+    return [{"name": "Example Recipe", "steps": ["Step 1", "Step 2"]}]
